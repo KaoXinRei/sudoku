@@ -184,10 +184,3 @@ class Window(ttk.Frame):
         self.master.bind_all('<BackSpace>', self.click_0)
         self.master.bind_all('<Delete>', self.click_clear)
 
-
-if __name__ == '__main__':
-    root = tk.Tk()
-    Window(root)
-    root.resizable(False, False)
-    root.title('Sudoku')
-    root.mainloop()
