@@ -57,89 +57,89 @@ class Window(ttk.Frame):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
-        if self.board.valid(a//9, a%9, 1):
-            self.vars[a - 1].set(1)
-            self.board[a//9][a%9] = 1
+        a = int(a) - 1
+        if self.board.valid(a // 9, a % 9, 1):
+            self.vars[a].set(1)
+            self.board[a // 9][a % 9] = 1
 
     def click_2(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 2):
-            self.vars[a - 1].set(2)
+            self.vars[a].set(2)
             self.board[a // 9][a % 9] = 2
 
     def click_3(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 3):
-            self.vars[a - 1].set(3)
+            self.vars[a].set(3)
             self.board[a // 9][a % 9] = 3
 
     def click_4(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 4):
-            self.vars[a - 1].set(4)
+            self.vars[a].set(4)
             self.board[a // 9][a % 9] = 4
 
     def click_5(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 5):
-            self.vars[a - 1].set(5)
+            self.vars[a].set(5)
             self.board[a // 9][a % 9] = 5
 
     def click_6(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 6):
-            self.vars[a - 1].set(6)
+            self.vars[a].set(6)
             self.board[a // 9][a % 9] = 6
 
     def click_7(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 7):
-            self.vars[a - 1].set(7)
+            self.vars[a].set(7)
             self.board[a // 9][a % 9] = 7
 
     def click_8(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 8):
-            self.vars[a - 1].set(8)
+            self.vars[a].set(8)
             self.board[a // 9][a % 9] = 8
 
     def click_9(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
+        a = int(a) - 1
         if self.board.valid(a // 9, a % 9, 9):
-            self.vars[a - 1].set(9)
+            self.vars[a].set(9)
             self.board[a // 9][a % 9] = 9
 
     def click_0(self, event):
         a = str(self.master.focus_get())[15:]
         if a == '':
             a = 1
-        a = int(a)
-        self.vars[a - 1].set('')
+        a = int(a) - 1
+        self.vars[a].set('')
 
     def click_solve(self, event):
         self.board.solved = False
@@ -183,4 +183,3 @@ class Window(ttk.Frame):
         self.master.bind_all('<Return>', self.click_solve)
         self.master.bind_all('<BackSpace>', self.click_0)
         self.master.bind_all('<Delete>', self.click_clear)
-
