@@ -5,8 +5,8 @@ import gui
 def main():
     root = tk.Tk()
     gui.Window(root)
-    root.resizable(False, False)
     root.title('Sudoku')
+    root.minsize(width=400, height=250)
     root.mainloop()
 
 

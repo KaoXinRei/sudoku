@@ -39,7 +39,7 @@ class Window(ttk.Frame):
     def create_layout(self):
         for i in range(9):
             for j in range(9):
-                self.cells[i * 9 + j].grid(row=i + i // 3, column=j + j // 3, padx=1, pady=1)
+                self.cells[i * 9 + j].grid(row=i + i // 3, column=j + j // 3, padx=1, pady=1, sticky=(tk.W, tk.E, tk.S, tk.N))
         self.vsep1.grid(row=0, column=3, rowspan=11, sticky=(tk.N, tk.S))
         self.vsep2.grid(row=0, column=7, rowspan=11, sticky=(tk.N, tk.S))
         self.hsep1.grid(row=3, column=0, columnspan=11, sticky=(tk.E, tk.W))
@@ -50,8 +50,16 @@ class Window(ttk.Frame):
         self.dif_label.grid(row=4, column=11, sticky=(tk.W, tk.E, tk.S, tk.N))
         self.scale.grid(row=5, column=11, rowspan=2, sticky=(tk.W, tk.E, tk.S, tk.N))
         self.grid(row=0, column=0, sticky=(tk.N, tk.S, tk.E, tk.W))
-        self.rowconfigure(4, weight=1)
+        for i in range(11):
+            self.rowconfigure(i, weight=1)
+            self.columnconfigure(i, weight=1)
         self.columnconfigure(11, weight=1)
+        self.rowconfigure(3, weight=0)
+        self.columnconfigure(3, weight=0)
+        self.rowconfigure(7, weight=0)
+        self.columnconfigure(7, weight=0)
+        self.master.columnconfigure(0, weight=1)
+        self.master.rowconfigure(0, weight=1)
 
     def click_1(self, event):
         a = str(self.master.focus_get())[15:]
